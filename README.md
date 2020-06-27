@@ -43,6 +43,8 @@ example response
             "percentageOfSurgeries": "4.47%"
         }
     ]
+    
+This is a postman collection with the request : https://www.getpostman.com/collections/e47acc8d63d0b840e2af
 
 # How to run
 
