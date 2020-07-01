@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.toMap;
 @Service
 public class FindNumberOfSurgeriesService {
 
-    String listOfMCRPostcodes = "M1,M2,M3,M4,M5,M6,M7,M8,M9,M11,M12,M13,M14,M15,M16,M17,M18,M19,M20,M21," +
+    private static final String LISTOFMCRPOSTCODES = "M1,M2,M3,M4,M5,M6,M7,M8,M9,M11,M12,M13,M14,M15,M16,M17,M18,M19,M20,M21," +
             "M22,M23,M24,M25,M26,M27,M28,M29,M30,M31,M32,M33,M34,M35,M38,M40,M41,M43,M44,M45,M46,M50,M90";
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
@@ -28,7 +28,7 @@ public class FindNumberOfSurgeriesService {
     public Stream<FindNumberOfSurgeriesResponse> findNumberOfSurgeries(FindNumberOfSurgeriesRequest findNumberOfSurgeriesRequest, Integer topOfSurgeries) {
         //organize surgeries per postcode
         Map<String, List<Pharmacy>> surgeriesPerOutwardCode = findNumberOfSurgeriesRequest.getData().getList().stream()
-                .filter(surgery -> listOfMCRPostcodes.contains(surgery.getPostcode().getOutwardCode()))
+                .filter(surgery -> LISTOFMCRPOSTCODES.contains(surgery.getPostcode().getOutwardCode()))
                 .collect(Collectors.groupingBy(x -> x.getPostcode().getOutwardCode()));
 
         //find total number of surgeries on the specific postcode

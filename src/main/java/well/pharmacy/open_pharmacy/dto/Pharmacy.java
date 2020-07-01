@@ -1,9 +1,11 @@
 package well.pharmacy.open_pharmacy.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Pharmacy {
 
     private String name;
